@@ -1,0 +1,11 @@
+[Unit]
+After=network.target
+
+[Service]
+User=www-data
+WorkingDirectory=/opt/devops
+ExecStart=/usr/bin/python3 -m flask --app app run --host=127.0.0.1 --port=5000
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

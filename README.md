@@ -57,3 +57,12 @@ Poženi na novo:
 ```sh
 multipass launch 26.04 --name devops-cloud --cpus 2 --memory 2G --disk 10G --cloud-init cloud-config.yaml
 ```
+
+# Pogon na šolski virtualki
+
+- `sudo multipass launch --name devops --cloud-init cloud-init.yaml`
+- `multipass info devops`
+  - Pobereš ven `<LOKALNI IP>`
+- `ip addr`
+  - Pobereš ven javni IP `<JAVNI IP>` => `88.200.24.5`
+- `sudo socat TCP-LISTEN:8080,bind=0.0.0.0,reuseaddr,fork TCP:<LOKALNI IP>:80`
